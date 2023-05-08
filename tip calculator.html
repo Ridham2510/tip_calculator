@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+		body{
+            background-color: antiquewhite;
+            color: #6f2020;
+        }
+        .container .heading{
+            padding-top: 50px;
+        }
+        body p{
+            font-size: 20px;
+        }
+		.container {
+			width: 350px;
+			height: 600px;
+			background-color: #fff;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+            border: 5px solid rgb(141, 94, 94);
+		}
+		
+		h1 {
+			position: absolute;
+			left: 50%;
+			top: -20px;
+			width: 300px;
+			transform: translateX(-50%);
+			text-align: center;
+		}
+		
+		.wrapper {
+			padding: 30px;
+		}
+
+		
+		button {
+			margin: 20px auto;
+			width: 250px;
+			height: 50px;
+			background-color: #6f2020;
+			color: #fff;
+			font-size: 16px;
+			border: none;
+            align-items: center;
+		}
+		
+		.tip {
+			text-align: center;
+			font-size: 18px;
+			display: none;
+            padding-top: 0;
+		} 
+	</style>
+</head>
+<body>
+        <div class="container">
+                <h1>Charles' Tip Calculater</h1>
+            <div class="wrapper">
+                <p class="heading">How much was your bill?</p>
+                <input type="text" id="total"> ₹
+                <p>How was your service ?</p>
+            <select id="discount">
+                <option selected disabled hidden>--Choose an option--</option>
+                <option value="70">70% - Excellent</option>
+                <option value="50">50% - Good</option>
+                <option value="25">25% - Bad</option>
+            </select>
+                <p>How many people are sharing the bill ?</p>
+                <input type="text" id="person"> people
+            </div>
+    
+            <div id="perperson"></div>
+            <div>
+                <br>
+                <input type="submit" value="CALCULATE!" onclick="return getBill()" style="padding: 10px 20px; background-color: #6f2020; color: #fff">
+                <br>
+            </div>
+
+        </div>
+
+        <script>
+            function getBill(){
+                var bill = document.getElementById('total').value;
+                // console.log(bill);
+                var disc = document.getElementById('discount').value;
+                // console.log(disc);
+                var person = document.getElementById('person').value;
+                // console.log(person);
+            
+                var disprice = (bill*disc)/100;
+                total = bill-disprice;
+                // console.log(dprice);
+            
+                var per_person = total/person;
+                // console.log(per_person);
+                document.getElementById('perperson').innerHTML = per_person+"  Per Person";
+            }
+        </script>
+</body>
+</html>
